@@ -17,7 +17,9 @@
             <source-roots>
                 <root id="src.src.dir"/>
             </source-roots>
-            <test-roots/>
+            <test-roots>
+                <root id="test.TestUnit.dir"/>
+            </test-roots>
         </data>
     </configuration>
 </project>

@@ -114,15 +114,24 @@ public class FirstStageController implements Initializable {
     public void getService (String Text){
         serviceLabel.setText(Text);
     }
+    
+    public static String rentCalc (Double days,Double carMoney,  Double petrolFullPrice){
+        String result = String.format("$ %.2f", (days * carMoney) + petrolFullPrice);
+        return result;
+    }
+    
+    public static int petrolCal(int TankCapacity, int petrolPrice) {
+        int result = 0;
+        result = (TankCapacity * petrolPrice);
+        // TODO logic in here
+        return result;
+    }
 
 
     @FXML
     private void rent(ActionEvent event) {
-        Double days = Double.parseDouble(daySelected.getText());
-        Double carMoney = Double.parseDouble(carPriceLabel.getText());
-        Double petrolFullPrice = Double.parseDouble(PetrolPriceLabel.getText());
-        String result = String.format("$ %.2f", (days * carMoney) + petrolFullPrice);
-        totalPriceLabel.setText(result);
+        
+        totalPriceLabel.setText( rentCalc( Double.parseDouble(daySelected.getText()), Double.parseDouble(carPriceLabel.getText()), Double.parseDouble(PetrolPriceLabel.getText())));
     }
 
     @FXML
